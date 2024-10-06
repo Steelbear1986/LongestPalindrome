@@ -1,9 +1,9 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         g=(Counter(s).values())
-        f=[]
+        f=0
         for i in g:
-            if i>1 and i%2!=0: f.append(i-1)
-            elif i%2==0: f.append(i)
-        if sum(g)>sum(f): f.append(1)
-        return sum(f)
+            if i>1 and i%2!=0: f+=(i-1)
+            elif i%2==0: f+=i
+        if sum(g)>f: f+=1
+        return f
